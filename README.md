@@ -1,2 +1,2 @@
 # atividades-algoritimos-e-programacao-i
-C++ programming exercises from the first semester of computer science in UNIVALI
+This repo will be written in portuguese so it can be accessible to my class colleagues.
