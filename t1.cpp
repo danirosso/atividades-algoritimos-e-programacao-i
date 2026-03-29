@@ -18,7 +18,7 @@ int main() {
     * e por cada etapa remover estes numeros do i.                                 *
     ********************************************************************************/
 
-    if (i > 999999 && i <= 999999999) {
+    if (i > 99999 && i <= 999999999) {
         i1 = i / 100000000;
         i = i % 100000000;
         i2 = i / 10000000;
@@ -62,7 +62,7 @@ int main() {
         
         return 0;
 
-    } else if (i < 999999) {
+    } else if (i < 99999) {
         cout << "Voce inseriu um numero menor, reinicie o programa.\n";
         return 0;
     } else {
