@@ -14,7 +14,7 @@ int main() {
     cin >> i;
 
     /********************************************************************************
-    * podemos também tirar %10 do i e incrementar este número no i1, i2, i3 etc..  *
+    * podemos também tirar %10 do i e incrimentar este número no i1, i2, i3 etc..  *
     * e por cada etapa remover estes numeros do i.                                 *
     ********************************************************************************/
 
