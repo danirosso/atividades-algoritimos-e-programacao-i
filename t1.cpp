@@ -1,72 +1,76 @@
 /**************************************************************************************
- * *********************Verificador de CPF TOTAL-LEGIT!********************************
- * Criadores: Alison Brito * Daniel Rosso * Gabriel Alves * Luiz Carlos * Romulo Cesar*
- * ********************** VERSAO 2.0       ********************************
-**************************************************************************************/
+ **********************  Verificador de CPF TOTAL-LEGIT!  ******************************
+ * Criadores: Alison Brito * Daniel Rosso * Gabriel Alves * Luiz Carlos * Romulo Cesar *
+ *************************             VERSAO 3.0       ********************************
+ **************************************************************************************/
 
 #include <iostream>
 
 int main() {
-    using namespace std;
-    int i, i1, i2, i3, i4, i5, i6, i7, i8, i9, primeiroDigito, segundoDigito;
 
-    cout << "Insira um numero de oito ou nove digitos: ";
-    cin >> i;
+	using namespace std;
+	int cpf, d1, d2, d3, d4, d5, d6, d7, d8, d9, primeiroDigitoCalculado, segundoDigitoCalculado;
+	// cria varios numeros inteiros, um pro cpf, um pra cada digito separados
+	// e mais um para os digitos calculados
 
-    /********************************************************************************
-    * podemos também tirar %10 do i e incrimentar este número no i1, i2, i3 etc..  *
-    * e por cada etapa remover estes numeros do i.                                 *
-    ********************************************************************************/
+	cout << "Insira um numero de oito ou nove digitos: ";
+	cin >> cpf;
+	//pede pro usuario o numero do cpf
 
-    if (i > 99999 && i <= 999999999) {
-        i1 = i / 100000000;
-        i = i % 100000000;
-        i2 = i / 10000000;
-        i = i % 10000000;
-        i3 = i / 1000000;
-        i = i % 1000000;
-        i4 = i / 100000;
-        i = i % 100000;
-        i5 = i / 10000;
-        i = i % 10000;
-        i6 = i / 1000;
-        i = i % 1000;
-        i7 = i / 100;
-        i = i % 100;
-        i8 = i / 10;
-        i = i % 10;
-        i9 = i / 1;
-        i = i % 1;
+	if (cpf > 99999 && cpf <= 999999999) {
+		d9 = cpf % 10;		// pega o ultimo digito do numero cpf	
+		cpf = cpf / 10;		// iguala o numero do cpf a ele mesmo /10
+		d8 = cpf % 10;		// isso se repete ate que os digitos acabem
+		cpf = cpf / 10;
+		d7 = cpf % 10;
+		cpf = cpf / 10;
+		d6 = cpf % 10;				
+		cpf = cpf / 10;
+		d5 = cpf % 10;
+		cpf = cpf / 10;
+		d4 = cpf % 10;
+		cpf = cpf / 10;
+		d3 = cpf % 10;
+		cpf = cpf / 10;
+		d2 = cpf % 10;
+		cpf = cpf / 10;
+		d1 = cpf % 10;
+		cpf = cpf / 10;
 
-        primeiroDigito = i1 * 10 + i2 * 9 + i3 * 8 + i4 * 7 + i5 * 6 + i6 * 5 + i7 * 4 + i8 * 3 + i9 * 2;
-        cout << "Primeira equacao: " << primeiroDigito << "\n";
+		primeiroDigitoCalculado = d1 * 10 + d2 * 9 + d3 * 8 + d4 * 7 + d5 * 6 + d6 * 5 + d7 * 4 + d8 * 3 + d9 * 2;	//aplica a primeira equacao
 
-        if (primeiroDigito % 11 < 2) {
-            primeiroDigito = 0;
-        } else {
-            primeiroDigito = 11 - (primeiroDigito % 11);
-        }
+		if (primeiroDigitoCalculado % 11 < 2) {
+			primeiroDigitoCalculado = 0;
+		} else {
+			primeiroDigitoCalculado = 11 - (primeiroDigitoCalculado % 11);
+		} //aplica a regra dada no problema
 
-        segundoDigito = i1 * 11 + i2 * 10 + i3 * 9 + i4 * 8 + i5 * 7 + i6 * 6 + i7 * 5 + i8 * 4 + i9 * 3 + primeiroDigito * 2;
-        cout << "Segunda equacao: " << segundoDigito << "\n";
+		segundoDigitoCalculado = d1 * 11 + d2 * 10 + d3 * 9 + d4 * 8 + d5 * 7 + d6 * 6 + d7 * 5 + d8 * 4 + d9 * 3 + primeiroDigitoCalculado * 2;		//aplica a segunda equacao
+		cout << "Segunda equacao: " << segundoDigitoCalculado << "\n";
 
-        if (segundoDigito % 11 < 2) {
-            segundoDigito = 0;
-        } else {
-            segundoDigito = 11 - (segundoDigito % 11);
-        }
+		if (segundoDigitoCalculado % 11 < 2) {
+			segundoDigitoCalculado = 0;
+		} else {
+			segundoDigitoCalculado = 11 - (segundoDigitoCalculado % 11);
+		} //aplica a regra dada no problema
 
-        cout << "O CPF obtido com esses numeros e: " << i1 << i2 << i3 << "." 
-             << i4 << i5 << i6 << "." << i7 << i8 << i9 << "-" 
-             << primeiroDigito << segundoDigito << "\n";
-        
-        return 0;
+		cout << "O CPF obtido com esses numeros e: " << d1 << d2 << d3 << "." 
+			<< d4 << d5 << d6 << "." << d7 << d8 << d9 << "-" 
+			<< primeiroDigitoCalculado << segundoDigitoCalculado << "\n";
+		//imprime um digito atras do outro, podemos aproveitar isso
+		//e fazer uma separacao no numero, para facilitar a leitura
 
-    } else if (i < 99999) {
-        cout << "Voce inseriu um numero menor, reinicie o programa.\n";
-        return 0;
-    } else {
-        cout << "Voce inseriu um numero maior, reinicie o programa.\n";
-        return 0;
-    }
+		return 0;// nao temos ferramentas o suficiente para fazer um sistema de menus
+			 // entao o programa retorna zero pro terminal
+			 // que significa "terminou sem erros"
+
+	} else if (cpf < 99999) {
+		cout << "Voce inseriu um numero menor, reinicie o programa.\n";
+		return 0;} else {
+			cout << "Voce inseriu um numero maior, reinicie o programa.\n";
+			return 0;
+		}// mesma logica de antes, nao temos ferramentas pra fazer
+		 // um sistema de menu mais interativo ainda
+		 // entao o programa so pode fechar se houver um problema
+
 }
