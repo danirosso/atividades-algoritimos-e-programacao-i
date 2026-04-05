@@ -13,7 +13,7 @@ int main() {
 	// cria varios numeros inteiros, um pro cpf, um pra cada digito separados
 	// e mais um para os digitos calculados
 
-	cout << "Insira um numero de oito ou nove digitos: ";
+	cout << "Insira um numero de cpf sem os digitos de verificacao (os ultimos dois):  ";
 	cin >> cpf;
 	//pede pro usuario o numero do cpf
 
@@ -45,9 +45,9 @@ int main() {
 			primeiroDigitoCalculado = 11 - (primeiroDigitoCalculado % 11);
 		} //aplica a regra dada no problema
 
-		segundoDigitoCalculado = d1 * 11 + d2 * 10 + d3 * 9 + d4 * 8 + d5 * 7 + d6 * 6 + d7 * 5 + d8 * 4 + d9 * 3 + primeiroDigitoCalculado * 2;		//aplica a segunda equacao
-		cout << "Segunda equacao: " << segundoDigitoCalculado << "\n";
-
+		segundoDigitoCalculado = d1 * 11 + d2 * 10 + d3 * 9 + d4 * 8 + d5 * 7 + d6 * 6 + d7 * 5 + d8 * 4 + d9 * 3 + primeiroDigitoCalculado * 2;
+		//aplica a segunda equacao
+		
 		if (segundoDigitoCalculado % 11 < 2) {
 			segundoDigitoCalculado = 0;
 		} else {
@@ -64,7 +64,8 @@ int main() {
 			 // entao o programa retorna zero pro terminal
 			 // que significa "terminou sem erros"
 
-	} else if (cpf < 99999) {
+	} else if (cpf < 99999) { //essa quantidade nao esta errada, existem cpfs com menos de oito digitos, existem cpfs com tres zeros na frente
+				  //afim de incluir todo mundo, decidimos reduzir o numero exigido na entrada
 		cout << "Voce inseriu um numero menor, reinicie o programa.\n";
 		return 0;} else {
 			cout << "Voce inseriu um numero maior, reinicie o programa.\n";
