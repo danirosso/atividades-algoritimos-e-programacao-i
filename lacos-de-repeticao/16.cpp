@@ -8,6 +8,6 @@ int main (void){
 	for (int i = n - 1; i > 0; i--){
 		n *= i;
 	};
-	cout << "Resultado: " << n;
+	cout << "Resultado: " << n << endl;
 	return 0;
 }

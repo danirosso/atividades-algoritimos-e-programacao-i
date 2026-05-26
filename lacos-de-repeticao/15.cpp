@@ -12,6 +12,6 @@ int main (void){
 			impar ++;
 		};
 	};
-	cout << "Pares: " << par << endl << "Impares: " << impar;
+	cout << "Pares: " << par << endl << "Impares: " << impar << endl;
 	return 0;
 }
